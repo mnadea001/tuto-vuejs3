@@ -17,41 +17,41 @@
 
       <h3>Are pets allowed?</h3>
       <div>
-        <input type="radio" v-model="event.pets" :value="1" name="pets" />
-        <label>Yes</label>
+        <BaseRadio v-model="event.pets" :value="0" label="No" name="pets" />
       </div>
 
       <div>
-        <input type="radio" v-model="event.pets" :value="0" name="pets" />
-        <label>No</label>
+        <BaseRadio v-model="event.pets" :value="1" label="Yes" name="pets" />
       </div>
 
       <h3>Extras</h3>
       <div>
-        <input type="checkbox" v-model="event.extras.catering" class="field" />
-        <label>Catering</label>
+        <BaseCheckbox v-model="event.extras.catering" label="Catering" />
       </div>
 
       <div>
-        <input type="checkbox" v-model="event.extras.music" class="field" />
-        <label>Live music</label>
+        <BaseCheckbox v-model="event.extras.music" label="Live Music" />
       </div>
 
       <button type="submit">Submit</button>
     </form>
 
-    <!-- <pre>{{ event }}</pre> -->
+    <pre>{{ event }}</pre>
   </div>
 </template>
 
 <script>
+import BaseCheckbox from "@/components/BaseCheckbox.vue";
 import BaseInput from "@/components/BaseInput.vue";
+import BaseRadio from "@/components/BaseRadio.vue";
 import BaseSelect from "@/components/BaseSelect.vue";
 export default {
   name: "SimpleForm",
   components: {
     BaseInput,
     BaseSelect,
+    BaseCheckbox,
+    BaseRadio,
   },
   data() {
     return {
