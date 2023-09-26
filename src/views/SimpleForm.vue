@@ -17,11 +17,15 @@
 
       <h3>Are pets allowed?</h3>
       <div>
-        <BaseRadio v-model="event.pets" :value="0" label="No" name="pets" />
-      </div>
-
-      <div>
-        <BaseRadio v-model="event.pets" :value="1" label="Yes" name="pets" />
+        <BaseRadioGroup
+          v-model="event.pets"
+          name="pets"
+          :options="petOptions"
+          vertical
+        />
+        <!-- BaseRadioGroup replace the two BaseRadio  -->
+        <!-- <BaseRadio v-model="event.pets" :value="0" label="No" name="pets" />
+        <BaseRadio v-model="event.pets" :value="1" label="Yes" name="pets" /> -->
       </div>
 
       <h3>Extras</h3>
@@ -43,7 +47,8 @@
 <script>
 import BaseCheckbox from "@/components/BaseCheckbox.vue";
 import BaseInput from "@/components/BaseInput.vue";
-import BaseRadio from "@/components/BaseRadio.vue";
+// import BaseRadio from "@/components/BaseRadio.vue";
+import BaseRadioGroup from "@/components/BaseRadioGroup.vue";
 import BaseSelect from "@/components/BaseSelect.vue";
 export default {
   name: "SimpleForm",
@@ -51,7 +56,8 @@ export default {
     BaseInput,
     BaseSelect,
     BaseCheckbox,
-    BaseRadio,
+    // BaseRadio,
+    BaseRadioGroup,
   },
   data() {
     return {
@@ -75,6 +81,10 @@ export default {
           music: false,
         },
       },
+      petOptions: [
+        { label: "Yes", value: 1 },
+        { label: "No", value: 0 },
+      ],
     };
   },
 };
