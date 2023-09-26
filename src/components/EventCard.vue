@@ -1,5 +1,8 @@
 <template>
-  <router-link to="/event/5928101">
+  <router-link
+    class="event-link"
+    :to="{ name: 'EventDetails', params: { id: event.id } }"
+  >
     <div class="event-card">
       <span>@ {{ event.time }} on {{ event.date }}</span>
       <h4>{{ event.title }}</h4>
@@ -12,6 +15,8 @@ export default {
   name: "EventCard",
   props: {
     event: Object,
+    // eslint-disable-next-line vue/require-prop-type-constructor
+    required: true,
   },
 };
 </script>
