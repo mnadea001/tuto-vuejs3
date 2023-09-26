@@ -40,7 +40,7 @@
       <button type="submit">Submit</button>
     </form>
 
-    <pre>{{ event }}</pre>
+    <!-- <pre>{{ event }}</pre> -->
   </div>
 </template>
 
